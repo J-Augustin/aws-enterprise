@@ -1,0 +1,19 @@
+{
+    "description": "This SCP denies the ability to create or use root accounts within the organization.",
+    "policy": {
+        "Version": "2012-10-17",
+        "Statement": [
+        {
+            "Sid": "DenyRootAccountUsage",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+            "StringEquals": {
+                "aws:PrincipalType": "arn:aws:iam:*:root"
+            }
+            }
+        }
+        ]
+    }
+}
