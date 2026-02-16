@@ -1,0 +1,49 @@
+# =========================
+# Terraform Gitignore Files 
+# =========================
+
+# Local Terraform directories
+.terraform/
+
+# Terraform state files (NEVER commit)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Terraform variable files with values
+*.tfvars
+*.tfvars.json
+
+# Terraform plan output
+*.tfplan
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+
+# =========================
+# IDE / Editor
+# =========================
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# =========================
+# Shell / OS
+# =========================
+
+# Bash history
+.bash_history

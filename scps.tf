@@ -1,6 +1,6 @@
 resource "aws_organizations_policy" "deny_root" {
-  name = "DenyRootUsage"
-  type = "SERVICE_CONTROL_POLICY"
+  name    = "DenyRootUsage"
+  type    = "SERVICE_CONTROL_POLICY"
   content = file("${path.module}/scps/deny-root.json")
 }
 
