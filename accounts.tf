@@ -44,3 +44,10 @@ resource "aws_organizations_account" "staging" {
   email     = "staging@fun-factory.com"
   parent_id = aws_organizations_organizational_unit.workloads.id
 }
+
+
+resource "aws_organizations_account" "sandbox" {
+  name      = "sandbox"
+  email     = "sandbox@fun-factory.com"
+  parent_id = aws_organizations_organizational_unit.sandbox.id
+}

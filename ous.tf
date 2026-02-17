@@ -13,3 +13,7 @@ resource "aws_organizations_organizational_unit" "workloads" {
   parent_id = aws_organizations_organization.org.root_id
 }
 
+resource "aws_organizations_organizational_unit" "sandbox" {
+  name      = "Sandbox"
+  parent_id = aws_organizations_organization.org.root_id
+}
