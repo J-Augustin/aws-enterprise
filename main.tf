@@ -26,7 +26,7 @@ module "accounts" {
     shared_services = {
       name      = "shared-services"
       email     = "shared-services@fun-factory.com"
-      parent_id = module.organization.organizational_unit_ids["Infrastructure"]
+      parent_id = module.organization.organizational_unit_ids["Workloads"]
     }
      dev = {
       name      = "dev"
