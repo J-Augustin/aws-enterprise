@@ -6,5 +6,5 @@ resource "aws_organizations_policy" "deny_root" {
 
 resource "aws_organizations_policy_attachment" "deny_root_workloads" {
   policy_id = aws_organizations_policy.deny_root.id
-  target_id = aws_organizations_organizational_unit.workloads.id
+  target_id = module.organization.organizational_unit_ids["Workloads"]
 }
