@@ -31,16 +31,3 @@ resource "aws_config_configuration_aggregator" "org" {
     role_arn    = aws_iam_role.config_aggregator.arn
   }
 }
-
-resource "aws_organizations_account" "network" {
-  name      = "network"
-  email     = "network@fun-factory.com"
-  parent_id = module.organization.organizational_unit_ids["Infrastructure"]
-}
-
-
-resource "aws_organizations_account" "shared_services" {
-  name      = "shared-services"
-  email     = "shared-services@fun-factory.com"
-  parent_id = module.organization.organizational_unit_ids["Workloads"]
-}

@@ -1,7 +1,7 @@
 module "organization" {
   source = "./modules/organization"
 
-  organizational_units = [ "Security", "Infrastructure", "Workloads", "Sandbox"]
+  organizational_units = ["Security", "Infrastructure", "Workloads", "Sandbox"]
 }
 
 module "accounts" {
@@ -26,9 +26,9 @@ module "accounts" {
     shared_services = {
       name      = "shared-services"
       email     = "shared-services@fun-factory.com"
-      parent_id = module.organization.organizational_unit_ids["Infrastructure"]
+      parent_id = module.organization.organizational_unit_ids["Workloads"]
     }
-     dev = {
+    dev = {
       name      = "dev"
       email     = "dev@fun-factory.com"
       parent_id = module.organization.organizational_unit_ids["Workloads"]
@@ -43,7 +43,7 @@ module "accounts" {
       email     = "staging@fun-factory.com"
       parent_id = module.organization.organizational_unit_ids["Workloads"]
     }
-     sandbox = {
+    sandbox = {
       name      = "sandbox"
       email     = "sandbox@fun-factory.com"
       parent_id = module.organization.organizational_unit_ids["Sandbox"]
