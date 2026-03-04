@@ -4,13 +4,12 @@
         {
             "Sid": "DenyRootUser",
             "Effect": "Deny",
-            "Principal": "*",
             "Action": "*",
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:PrincipalAccount": "Root"
-                },
+                    "aws:PrincipalType": "Root"
+                }
                 
             }
         }

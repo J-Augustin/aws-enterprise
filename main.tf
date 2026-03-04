@@ -52,10 +52,38 @@ module "accounts" {
   }
 }
 
-resource "aws_cloudtrail" "org_trail" {
-  name                          = "org-trail"
-  s3_bucket_name                = aws_s3_bucket.log_bucket.id
-  is_organization_trail         = true
-  enable_log_file_validation    = true
-  include_global_service_events = true
+module "scps" {
+  source = "./modules/scps"
+
+  policies = {
+    deny_root = {
+      name    = "DenyRootUsage"
+      content = file("${path.module}/scps/deny-root.json")
+    }
+  }
+
+  attachments = [
+    {
+      policy_key = "deny_root"
+      target_id  = module.organization.organizational_unit_ids["Workloads"]
+    }
+  ]
+}
+
+module "cloudtrail" {
+  source = "./modules/cloudtrail"
+
+  trail_name  = "org-trail"
+  bucket_name = "fun-factory-cloudtrail-logs"
+}
+
+module "security" {
+  source = "./modules/security"
+
+  providers = {
+    aws          = aws
+    aws.security = aws.security
+  }
+
+  security_account_id = var.security_account_id
 }
